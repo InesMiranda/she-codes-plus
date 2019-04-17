@@ -1,4 +1,4 @@
-h2{
+h2 {
     color: black;
     display:block;
     font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -10,7 +10,7 @@ h2{
     text-size-adjust:100%;
     width:76.625px;
 }
-h3{
+h3 {
     color:black;
     display:block;
     font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -21,4 +21,8 @@ h3{
     height:26px;
     text-size-adjust:100%;
     width:76.625px;
+}
+
+button {
+    margin-left: 10px;
 }

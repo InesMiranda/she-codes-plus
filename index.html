@@ -9,12 +9,17 @@
     <body>
         <div class="container">
         <div class="header">
+        <div class="clearfix">
             <h1>Weather App</h1>
+            <div class="form-group float-left">
             <form>
                 <input type="text" placeholder="Enter City or Zip Code">
-                <input type="submit" class="btn btn-primary" value="Search"/>
+            </div>
+                <input type="submit" class="btn btn-primary float-left" value="Search"/>
             </form>
-            <button>Current Location</button>
+            <button class="btn btn-success float-left">Current Location</button>
+        
+        </div>
             <p></p>
             <div class= "row">
                 <div class="col-md-3">
@@ -37,38 +42,35 @@
                 </div> 
                 <div class="col-md-9">
 			        <div>
-				        <h2 class="city">Lisbon</h2>
+				        <h2 id="city"></h2>
                      </div>
                      <div>
-			        	<h3 class="country">Portugal</h3>
+			        	<h3 id="country"></h3>
                       </div>
                      <div>
-			        	<h4 class="date-time">27/03/2019 9h26</h4>
+			        	<h4 id="date-time"></h4>
                      </div>
                      <div class="current-weather">
                         <div>
-                            <p>Sunny</p>
-                            <p>23 ºC</p>
-                            <p>12 ºC</p>
+                            <p id="weather-description"></p>
+                            <p><span id="weather-temperature"></span><small>°C</small></p>
+                            <p><span id="weather-higher-temperature"></span><small>°C</small></p>
+                            <p><span id="weather-lower-temperature"></span><small>°C</small></p>
                         </div>
                     </div>
                     <div class="col-md-6">Details
                         <div class="card">
                             <div class="card-body">
-                                Feels like 12 C
-                                <br>Humidity 71%
-                                <br>Visibility 16.10km
-                                <br>UV Index 1 (Low)
+                                <span>Feels like 12 C </span>
+                                <br>Humidity: <span id="weather-humidity"></span>%
+                                <br>Visibility: <span id="weather-visibility"></span>km/h
+                                <br>UV Index: <span id="weather-uv-index"></span>
                             </div>
                           </div>
                     </div>
                 </div> 
             </div>
-        </div>
-        <div class= "row">
-            
-        </div>
-        
+        </div>        
         <div class="forecast--weakly-weather">
             <div>
                 <p>Wednesday</p>
@@ -116,6 +118,7 @@
         </div>
         </div>
     </div>
+    <script src="app.js"></script>
     </body>
 
 </html>
