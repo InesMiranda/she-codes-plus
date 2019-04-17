@@ -5,6 +5,7 @@ let description = document.querySelector("#weather-description");
 let temperature = document.querySelector("#weather-temperature");
 let temperatureHigher = document.querySelector("#weather-higher-temperature");
 let temperatureLower = document.querySelector("#weather-lower-temperature");
+let windSpeed = document.querySelector("#weather-wind-speed");
 let humidity = document.querySelector("#weather-humidity");
 let visibility = document.querySelector("#weather-visibility");
 let uvIndex = document.querySelector("#weather-uv-index");
