@@ -14,17 +14,24 @@ let apiKey = "ea123f7f053ae1c00499328f0f8b0c1c";
 let apiRoot = "https://api.openweathermap.org/data/2.5"
 let apiUrl = `${apiRoot}/weather?q=Lisbon&appid=${apiKey}&units=metric`;
 
+function formatDate(date){
+    let days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+    let day = date.getDay();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    return `${day} ${hours}:${minutes}`;
+}
 
 function refreshWeather(response){
     city.innerHTML = response.data.name;
     country.innerHTML = response.data.sys.country;
-    time.innerHTML = response.data.dt;
+    time.innerHTML = formatDate(new Date(response.data.dt * 1000));
     description.innerHTML = response.data.weather[0].main;
-    temperature.innerHTML = response.data.main.temp;
+    temperature.innerHTML = Math.round(response.data.main.temp);
     humidity.innerHTML = response.data.main.humidity;
-    windSpeed.innerHTML = response.data.wind.speed;
-    temperatureHigher.innerHTML = response.data.main.temp_max;
-    temperatureLower.innerHTML = response.data.main.temp_min;
+    windSpeed.innerHTML = Math.round(response.data.wind.speed);
+    temperatureHigher.innerHTML = Math.round(response.data.main.temp_max);
+    temperatureLower.innerHTML = Math.round(response.data.main.temp_min);
     visibility.innerHTML = response.data.visibility;
 }
 
