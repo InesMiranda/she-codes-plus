@@ -16,9 +16,12 @@ let apiUrl = `${apiRoot}/weather?q=Lisbon&appid=${apiKey}&units=metric`;
 
 function formatDate(date){
     let days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
-    let day = date.getDay();
+    let day = days[date.getDay()];
     let hours = date.getHours();
     let minutes = date.getMinutes();
+    if (minutes < 10) {
+        minutes = `0${minutes}`;
+    }
     return `${day} ${hours}:${minutes}`;
 }
 
