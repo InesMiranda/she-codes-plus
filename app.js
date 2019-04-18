@@ -1,3 +1,4 @@
+//Creation of variables
 let place = document.querySelector("#city");
 let country = document.querySelector("#country");
 let time = document.querySelector("#date-time");
@@ -17,6 +18,7 @@ let apiKey = "ea123f7f053ae1c00499328f0f8b0c1c";
 let apiRoot = "https://api.openweathermap.org/data/2.5"
 let apiUrl = `${apiRoot}/weather?q=${city}&appid=${apiKey}&units=metric`;
 
+//Function to make date work
 function formatDate(date){
     let days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
     let day = days[date.getDay()];
@@ -28,6 +30,7 @@ function formatDate(date){
     return `${day} ${hours}:${minutes}`;
 }
 
+//Function to refresh data with the response provided by the API
 function refreshWeather(response){
     place.innerHTML = response.data.name;
     country.innerHTML = response.data.sys.country;
@@ -41,11 +44,13 @@ function refreshWeather(response){
     visibility.innerHTML = response.data.visibility;
 }
 
+//Function to make search get the API response of what we put on search
 function search(city){
     let apiUrl = `${apiRoot}/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(refreshWeather);
 }
 
+//Function to male sure that we get an alert if no city is inserted on search
 function handleSearch(event){
     event.preventDefault();
     let input = document.querySelector("#weather-search");
@@ -57,11 +62,13 @@ function handleSearch(event){
     }
 }
 
+//Function that updates the weather data after getting the results of our current location
 function searchPosition(position){
     let apiUrl = `${apiRoot}/weather?lan=${position.coords.longitude}&lat=${position.coords.latitude}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(refreshWeather);
 }
 
+//Function that gets our current location after pressing the button
 function getLocationWeather(event){
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(searchPosition);
