@@ -40,15 +40,25 @@ function refreshWeather(response){
     visibility.innerHTML = response.data.visibility;
 }
 
+function search(city){
+    let apiUrl = `${apiRoot}/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(refreshWeather);
+
+}
+
 function handleSearch(event){
     event.preventDefault();
     let input = document.querySelector("#weather-search");
-    let apiUrl = `${apiRoot}/weather?q=${input.value}&appid=${apiKey}&units=metric`;
 
-    axios.get(apiUrl).then(refreshWeather);
+    if (input.value.length > 0){
+        search(input.value);
+    } else {
+        alert ("Please enter a city");
+    }
 }
 
 form.addEventListener("submit",handleSearch);
 
+search("Lisbon");
 
 
