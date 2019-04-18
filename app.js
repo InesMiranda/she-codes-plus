@@ -10,6 +10,7 @@ let humidity = document.querySelector("#weather-humidity");
 let visibility = document.querySelector("#weather-visibility");
 let uvIndex = document.querySelector("#weather-uv-index");
 let form = document.querySelector("#weather-form");
+let currentLocation = document.querySelector("#current-location");
 
 
 let apiKey = "ea123f7f053ae1c00499328f0f8b0c1c";
@@ -43,7 +44,6 @@ function refreshWeather(response){
 function search(city){
     let apiUrl = `${apiRoot}/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(refreshWeather);
-
 }
 
 function handleSearch(event){
@@ -57,7 +57,19 @@ function handleSearch(event){
     }
 }
 
+function searchPosition(position){
+    let apiUrl = `${apiRoot}/weather?lan=${position.coords.longitude}&lat=${position.coords.latitude}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(refreshWeather);
+}
+
+function getLocationWeather(event){
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(searchPosition);
+
+}
+
 form.addEventListener("submit",handleSearch);
+currentLocation.addEventListener("click", getLocationWeather);
 
 search("Lisbon");
 
