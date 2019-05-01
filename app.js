@@ -64,7 +64,7 @@ function handleSearch(event){
 
 //Function that updates the weather data after getting the results of our current location
 function searchPosition(position){
-    let apiUrl = `${apiRoot}/weather?lan=${position.coords.longitude}&lat=${position.coords.latitude}&appid=${apiKey}&units=metric`;
+    let apiUrl = `${apiRoot}/weather?lon=${position.coords.longitude}&lat=${position.coords.latitude}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(refreshWeather);
 }
 
