@@ -1,8 +1,18 @@
+body{
+    font-family:'Work Sans', sans-serif;
+}
+
+h1{
+    font-family: 'Just Another Hand', cursive;
+    text-align: center;
+    font-size: 30px;
+}
+
 h2 {
     color: black;
     display:block;
-    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size:26px;
+    font-family:'Work Sans', sans-serif;
+    font-size:16px;
     font-stretch:100%;
     font-style:normal;
     font-weight:400;
@@ -13,8 +23,8 @@ h2 {
 h3 {
     color:black;
     display:block;
-    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size:16px;
+    font-family:'Work Sans', sans-serif;
+    font-size:10px;
     font-stretch:100%;
     font-style:normal;
     font-weight:100;
@@ -25,4 +35,42 @@ h3 {
 
 button {
     margin-left: 10px;
+}
+
+.weather-form{
+    text-align: center;
+}
+
+.card{
+    font-family:'Work Sans', sans-serif;
+}
+
+.forecast-weakly-weather{
+    font-family:'Work Sans', sans-serif;
+}
+.current-weather{
+    font-family:'Work Sans', sans-serif;
+}
+.col-md-9{
+    font-family:'Work Sans', sans-serif;
+}
+.btn{
+    font-family:'Work Sans', sans-serif;
+}
+.placeholder{
+    font-family:'Work Sans', sans-serif;
+}
+.search-form{
+    margin-left: 300px;
+    padding: 10px;
+}
+
+.search{
+    background-color:#fb3569 !important;
+    border-color:#fb3569 !important;
+}
+
+.current-location{
+    background-color:#ff9d76 !important;
+    border-color: #ff9d76 !important;
 }

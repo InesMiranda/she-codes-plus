@@ -2,6 +2,8 @@
 <html>
     <head>
         <title>Weather App</title>
+        <link href="https://fonts.googleapis.com/css?family=Gugi|Just+Another+Hand" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -13,12 +15,12 @@
         <div class="clearfix">
             <h1>Weather App</h1>
             <div class="form-group float-left">
-            <form id="weather-form">
-                <input type="text" placeholder="Enter City or Zip Code" id="weather-search">
+            <form id="weather-form" class="search-form">
+                <input type="text" class="placeholder" placeholder="Enter City or Zip Code" id="weather-search">
             </div>
-                <input type="submit" class="btn btn-primary float-left" value="Search"/>
+                <input type="submit" class="search btn btn-primary float-left" value="Search"/>
             </form>
-            <button class="btn btn-success float-left" id="current-location">Current Location</button>
+            <button class="current-location btn btn-success float-left" id="current-location">Current Location</button>
         </div>
             <p></p>
             <div class= "row">
@@ -64,14 +66,13 @@
                                 <span>Wind Speed: <span id="weather-wind-speed"></span>km/h</span>
                                 <br>Humidity: <span id="weather-humidity"></span>%
                                 <br>Visibility: <span id="weather-visibility"></span>km/h
-                                <br>UV Index: <span id="weather-uv-index"></span>
                             </div>
                           </div>
                     </div>
                 </div> 
             </div>
         </div>        
-        <div class="forecast--weakly-weather">
+        <div class="forecast-weakly-weather">
             <div>
                 <p>Wednesday</p>
                 <img src="" class="img-Wednesday">
