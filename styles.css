@@ -13,12 +13,7 @@ h2 {
     display:block;
     font-family:'Work Sans', sans-serif;
     font-size:16px;
-    font-stretch:100%;
     font-style:normal;
-    font-weight:400;
-    height:26px;
-    text-size-adjust:100%;
-    width:76.625px;
 }
 h3 {
     color:black;
@@ -73,4 +68,8 @@ button {
 .current-location{
     background-color:#ff9d76 !important;
     border-color: #ff9d76 !important;
+}
+
+.weather-temperature{
+    font-size:40px;
 }
