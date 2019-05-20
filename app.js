@@ -12,11 +12,19 @@ let visibility = document.querySelector("#weather-visibility");
 let uvIndex = document.querySelector("#weather-uv-index");
 let form = document.querySelector("#weather-form");
 let currentLocation = document.querySelector("#current-location");
+let dayPlusOne = document.querySelector("#date-time-1");
+let dayPlusTwo = document.querySelector("#date-time-2");
+let dayPlusThree = document.querySelector("#date-time-3");
+let dayPlusFour = document.querySelector("#date-time-4");
+
 
 
 let apiKey = "ea123f7f053ae1c00499328f0f8b0c1c";
 let apiRoot = "https://api.openweathermap.org/data/2.5"
 let apiUrl = `${apiRoot}/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+let apiForecastUrl = `${apiRoot}/forecast?q=${city},${country}&appid=${apiKey}`;
+
 
 //Function to make date work
 function formatDate(date){
@@ -42,15 +50,21 @@ function refreshWeather(response){
     temperatureHigher.innerHTML = Math.round(response.data.main.temp_max);
     temperatureLower.innerHTML = Math.round(response.data.main.temp_min);
     visibility.innerHTML = response.data.visibility;
+    dayPlusOne.innerHTML = response.data.list.dt;
 }
 
 //Function to make search get the API response of what we put on search
 function search(city){
     let apiUrl = `${apiRoot}/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(refreshWeather);
+
+  // let apiForecastUrl = `${apiRoot}/forecast?q=${city},${country}&appid=${apiKey}`;
+    //axios.get(apiForecastUrl).then(refreshWeather);
+
+
 }
 
-//Function to male sure that we get an alert if no city is inserted on search
+//Function to make sure that we get an alert if no city is inserted on search
 function handleSearch(event){
     event.preventDefault();
     let input = document.querySelector("#weather-search");
