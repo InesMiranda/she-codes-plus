@@ -13,14 +13,22 @@
         <div class="container">
         <div class="header">
         <div class="clearfix">
-            <h1>Weather App</h1>
-            <div class="form-group float-left">
-            <form id="weather-form" class="search-form">
-                <input type="text" class="placeholder" placeholder="Enter City or Zip Code" id="weather-search">
+            <h1 class="display-1">Weather App</h1>
+            <div class="form-group ">
+                    <form id="weather-form" class="search-form form-inline my-2 my-lg-0">
+                            <div class="form-row">
+                              <div class="col-6">
+                                    <input id="weather-search" class="form-control mr-sm-2" type="search" placeholder="Enter City or Zip Code" aria-label="Search">
+                                </div>
+                              <div class="col">
+                                    <input type="submit" class="search btn btn-primary" value="Search"/>
+                                </div>
+                              <div class="col">
+                                    <button class="current-location btn btn-success" id="current-location">Current Location</button>
+                              </div>
+                            </div>
+                    </form>
             </div>
-                <input type="submit" class="search btn btn-primary float-left" value="Search"/>
-            </form>
-            <button class="current-location btn btn-success float-left" id="current-location">Current Location</button>
         </div>
             <p></p>
             <div class= "row">
@@ -100,25 +108,6 @@
         </div>
     </div>
 </div>
-        <div class= "row">
-            <div class="col-md-6">Forecast
-            <div class= "row">
-                <div class="flex-nowrap">10h</div>
-                <div class="flex-nowrap">11h</div>
-                <div class="flex-nowrap">12h</div>
-                <div class="flex-nowrap">13h</div>
-                <div class="flex-nowrap">14h</div>
-                <div class="flex-nowrap">15h</div>
-                <div class="flex-nowrap">16h</div>
-                <div class="flex-nowrap">17h</div>
-                <div class="flex-nowrap">18h</div>
-                <div class="flex-nowrap">19h</div>
-                <div class="flex-nowrap">20h</div>
-                <div class="flex-nowrap">21h</div>
-            </div>
-            </div>
-            
-        </div>
         </div>
     </div>
     <script src="app.js"></script>
