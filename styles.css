@@ -2,10 +2,36 @@ body{
     font-family:'Work Sans', sans-serif;
     background-image: url("drops.jpg");
     background-size: 1500px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+footer {
+    margin-top: 100px;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background-color: white;
+}
+footer p {
+    margin-bottom: .25rem;
+}
+
+body.Rain {
+    background-image: url("rain.jpg");
+}
+
+body.Thunderstorm {
+    background-image: url("thunderstorm.jpg");
+}
+
+body.Snow {
+    background-image: url("snow.jpg");
 }
 
 body.Clouds {
-    background-image: url("rain.jpg");
+    background-image: url("clouds.jpg");
 }
 
 h1{
