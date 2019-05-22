@@ -4,6 +4,10 @@ body{
     background-size: 1500px;
 }
 
+body.Clouds {
+    background-image: url("rain.jpg");
+}
+
 h1{
     font-family: 'Just Another Hand', cursive;
     text-align: center;

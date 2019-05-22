@@ -9,21 +9,21 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     </head>
-    <body>
+    <body id="body">
         <div class="container">
         <div class="header">
         <div class="clearfix">
             <h1 class="display-1">Weather App</h1>
             <div class="form-group ">
                     <form id="weather-form" class="search-form form-inline my-2 my-lg-0">
-                            <div class="form-row">
-                              <div class="col-6">
+                            <div class="row">
+                              <div class="col-5">
                                     <input id="weather-search" class="form-control mr-sm-2" type="search" placeholder="Enter City or Zip Code" aria-label="Search">
                                 </div>
-                              <div class="col">
+                              <div class="col-2">
                                     <input type="submit" class="search btn btn-primary" value="Search"/>
                                 </div>
-                              <div class="col">
+                              <div class="col-5">
                                     <button class="current-location btn btn-success" id="current-location">Current Location</button>
                               
                                   </div>
@@ -41,13 +41,13 @@
                                 <br>Saved cities
                                 <br>Saved cities<br>
                                 <br><h4>Around the World</h4>
-                                <a href="javascript:search(New York);">New York</a><br>
-                                <a href="javascript:search(Los Angeles);">Los Angeles</a><br>
-                                <a href="javascript:search(Lisboa);">Lisboa</a><br>
-                                <a href="javascript:search(London);">London</a><br>
-                                <a href="javascript:search(Paris);">Paris</a><br>
-                                <a href="javascript:search(Tokyo);">Tokyo</a><br>
-                                <a href="javascript:search(São Paulo);">São Paulo</a>
+                                <a href="javascript:search('New York');">New York</a><br>
+                                <a href="javascript:search('Los Angeles');">Los Angeles</a><br>
+                                <a href="javascript:search('Lisboa');">Lisboa</a><br>
+                                <a href="javascript:search('London');">London</a><br>
+                                <a href="javascript:search('Paris');">Paris</a><br>
+                                <a href="javascript:search('Tokyo');">Tokyo</a><br>
+                                <a href="javascript:search('São Paulo');">São Paulo</a>
 
                         </div>
                     </div>  

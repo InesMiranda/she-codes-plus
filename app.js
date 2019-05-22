@@ -19,6 +19,7 @@ let dayPlusFour = document.querySelector("#date-time-4");
 
 
 
+
 let apiKey = "ea123f7f053ae1c00499328f0f8b0c1c";
 let apiRoot = "https://api.openweathermap.org/data/2.5"
 let apiUrl = `${apiRoot}/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -50,7 +51,19 @@ function refreshWeather(response){
     temperatureHigher.innerHTML = Math.round(response.data.main.temp_max);
     temperatureLower.innerHTML = Math.round(response.data.main.temp_min);
     visibility.innerHTML = response.data.visibility;
-    dayPlusOne.innerHTML = response.data.list.dt;
+
+    document.getElementById("body").classList.remove("Clear");
+    document.getElementById("body").classList.remove("Clouds");
+    document.getElementById("body").classList.remove("Rain");
+
+    document.getElementById("body").classList.add(response.data.weather[0].main);
+}
+
+function refreshWeatherForecast(response){
+    for (var forecastIndex = 1; forecastIndex < 5; forecastIndex +=1) {
+        var column = document.querySelector("#date-time-"+forecastIndex);
+        column.innerHTML = formatDate(new Date(response.data.list[forecastIndex-1].dt * 1000));
+    }
 }
 
 //Function to make search get the API response of what we put on search
@@ -58,8 +71,8 @@ function search(city){
     let apiUrl = `${apiRoot}/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(refreshWeather);
 
-  // let apiForecastUrl = `${apiRoot}/forecast?q=${city},${country}&appid=${apiKey}`;
-    //axios.get(apiForecastUrl).then(refreshWeather);
+   let apiForecastUrl = `${apiRoot}/forecast?q=${city},${country}&appid=${apiKey}`;
+    axios.get(apiForecastUrl).then(refreshWeatherForecast);
 
 
 }
