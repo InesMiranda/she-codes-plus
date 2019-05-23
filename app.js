@@ -16,15 +16,20 @@ let dayPlusOne = document.querySelector("#date-time-1");
 let dayPlusTwo = document.querySelector("#date-time-2");
 let dayPlusThree = document.querySelector("#date-time-3");
 let dayPlusFour = document.querySelector("#date-time-4");
-
-
-
+let tempForecastOne= document.querySelector("#temp-forecast-1");
+let tempForecastTwo= document.querySelector("#temp-forecast-2");
+let tempForecastThree= document.querySelector("#temp-forecast-3");
+let tempForecastFour= document.querySelector("#temp-forecast-4");
+let tempForecastDescriptionOne = document.querySelector("#temp-forecast-description-1");
+let tempForecastDescriptionTwo = document.querySelector("#temp-forecast-description-2");
+let tempForecastDescriptionThree = document.querySelector("#temp-forecast-description-3");
+let tempForecastDescriptionFour = document.querySelector("#temp-forecast-description-4");
 
 let apiKey = "ea123f7f053ae1c00499328f0f8b0c1c";
 let apiRoot = "https://api.openweathermap.org/data/2.5"
 let apiUrl = `${apiRoot}/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-let apiForecastUrl = `${apiRoot}/forecast?q=${city},${country}&appid=${apiKey}`;
+let apiForecastUrl = `${apiRoot}/forecast?q=${city},${country}&appid=${apiKey}&units=metric`;
 
 
 //Function to make date work
@@ -37,6 +42,12 @@ function formatDate(date){
         minutes = `0${minutes}`;
     }
     return `${day} ${hours}:${minutes}`;
+}
+
+function formatDateForecast(date){
+    let days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+    let day = days[date.getDay()];
+    return `${day}`;
 }
 
 //Function to refresh data with the response provided by the API
@@ -60,20 +71,27 @@ function refreshWeather(response){
 }
 
 function refreshWeatherForecast(response){
-    for (var forecastIndex = 1; forecastIndex < 5; forecastIndex +=1) {
-        var column = document.querySelector("#date-time-"+forecastIndex);
-        column.innerHTML = formatDate(new Date(response.data.list[forecastIndex-1].dt * 1000));
+    dayPlusOne.innerHTML = formatDateForecast(new Date(response.data.list[1].dt * 1000));
+    dayPlusTwo.innerHTML = formatDateForecast(new Date(response.data.list[9].dt * 1000));
+    dayPlusThree.innerHTML = formatDateForecast(new Date(response.data.list[17].dt * 1000));
+    dayPlusFour.innerHTML = formatDateForecast(new Date(response.data.list[25].dt * 1000));
+    tempForecastOne.innerHTML = Math.round(response.data.list[1].main.temp_min);
+    tempForecastTwo.innerHTML = Math.round(response.data.list[9].main.temp_max);
+    tempForecastThree.innerHTML = Math.round(response.data.list[17].main.temp_min);
+    tempForecastFour.innerHTML = Math.round(response.data.list[25].main.temp_max);
+    tempForecastDescriptionOne.innerHTML = response.data.list[1].weather[0].main;
+    tempForecastDescriptionTwo.innerHTML = response.data.list[9].weather[0].main;
+    tempForecastDescriptionThree.innerHTML = response.data.list[17].weather[0].main;
+    tempForecastDescriptionFour.innerHTML = response.data.list[25].weather[0].main;
     }
-}
 
 //Function to make search get the API response of what we put on search
 function search(city){
     let apiUrl = `${apiRoot}/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(refreshWeather);
 
-   let apiForecastUrl = `${apiRoot}/forecast?q=${city},${country}&appid=${apiKey}`;
+   let apiForecastUrl = `${apiRoot}/forecast?q=${city},${country}&appid=${apiKey}&units=metric`;
     axios.get(apiForecastUrl).then(refreshWeatherForecast);
-
 
 }
 
