@@ -66,23 +66,25 @@ function refreshWeather(response){
     document.getElementById("body").classList.remove("Clear");
     document.getElementById("body").classList.remove("Clouds");
     document.getElementById("body").classList.remove("Rain");
+    document.getElementById("body").classList.remove("Thunderstorm");
+    document.getElementById("body").classList.remove("Snow");
 
     document.getElementById("body").classList.add(response.data.weather[0].main);
 }
 
 function refreshWeatherForecast(response){
-    dayPlusOne.innerHTML = formatDateForecast(new Date(response.data.list[1].dt * 1000));
-    dayPlusTwo.innerHTML = formatDateForecast(new Date(response.data.list[9].dt * 1000));
-    dayPlusThree.innerHTML = formatDateForecast(new Date(response.data.list[17].dt * 1000));
-    dayPlusFour.innerHTML = formatDateForecast(new Date(response.data.list[25].dt * 1000));
-    tempForecastOne.innerHTML = Math.round(response.data.list[1].main.temp_min);
-    tempForecastTwo.innerHTML = Math.round(response.data.list[9].main.temp_max);
-    tempForecastThree.innerHTML = Math.round(response.data.list[17].main.temp_min);
-    tempForecastFour.innerHTML = Math.round(response.data.list[25].main.temp_max);
-    tempForecastDescriptionOne.innerHTML = response.data.list[1].weather[0].main;
-    tempForecastDescriptionTwo.innerHTML = response.data.list[9].weather[0].main;
-    tempForecastDescriptionThree.innerHTML = response.data.list[17].weather[0].main;
-    tempForecastDescriptionFour.innerHTML = response.data.list[25].weather[0].main;
+    dayPlusOne.innerHTML = formatDateForecast(new Date(response.data.list[3].dt * 1000));
+    dayPlusTwo.innerHTML = formatDateForecast(new Date(response.data.list[11].dt * 1000));
+    dayPlusThree.innerHTML = formatDateForecast(new Date(response.data.list[19].dt * 1000));
+    dayPlusFour.innerHTML = formatDateForecast(new Date(response.data.list[27].dt * 1000));
+    tempForecastOne.innerHTML = Math.round(response.data.list[3].main.temp_min);
+    tempForecastTwo.innerHTML = Math.round(response.data.list[11].main.temp_max);
+    tempForecastThree.innerHTML = Math.round(response.data.list[19].main.temp_min);
+    tempForecastFour.innerHTML = Math.round(response.data.list[27].main.temp_max);
+    tempForecastDescriptionOne.innerHTML = response.data.list[3].weather[0].main;
+    tempForecastDescriptionTwo.innerHTML = response.data.list[11].weather[0].main;
+    tempForecastDescriptionThree.innerHTML = response.data.list[19].weather[0].main;
+    tempForecastDescriptionFour.innerHTML = response.data.list[27].weather[0].main;
     }
 
 //Function to make search get the API response of what we put on search
@@ -111,6 +113,9 @@ function handleSearch(event){
 function searchPosition(position){
     let apiUrl = `${apiRoot}/weather?lon=${position.coords.longitude}&lat=${position.coords.latitude}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(refreshWeather);
+
+    let apiForecastUrl = `${apiRoot}/forecast?q=${city},${country}&appid=${apiKey}&units=metric`;
+    axios.get(apiForecastUrl).then(refreshWeatherForecast);
 }
 
 //Function that gets our current location after pressing the button
